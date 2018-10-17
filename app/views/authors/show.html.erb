@@ -1,0 +1,13 @@
+<h1> <%= @author.name %> (b. <%= @author.birth_year %>) </h1>
+
+Books:
+<ul>
+  <% @author.books.each do |book| %>
+  <li> <%= link_to "#{book.title}", book_path(book.id) %> </li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit #{@author.name}", edit_author_path %>
+<br></br>
+<%= button_to "Delete #{@author.name}", @author, method: :delete %>
+<br></br>
